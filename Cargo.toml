@@ -1,0 +1,6 @@
+[package]
+name = "Huffman"
+version = "0.1.0"
+authors = ["eiji mishiro <eiji346g@gmail.com>"]
+
+[dependencies]
