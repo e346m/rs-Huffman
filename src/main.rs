@@ -3,7 +3,7 @@ use std::io::Read;
 use std::collections::HashMap;
 
 fn main() {
-    let mut f = File::open("hello.txt")
+    let mut f = File::open("sample/hello.txt")
         .expect("fail to open file");
 
     let mut buffer: Vec<u8> = Vec::new();//String::new();
@@ -12,15 +12,12 @@ fn main() {
         .expect("fail to read");
 
     println!("{:?} is content", buffer);
-    /*
-    let words: Vec<&str> = buffer.split(" ").collect();
 
-    println!("{:?}", words);
-    let mut frequencey: HashMap<&str, u32> = HashMap::new();
+    let mut frequencey = HashMap::new();
 
-    for word in words {
-        frequencey.entry(word).or_insert(0) += 1;
+    for word in buffer {
+        let counter = frequencey.entry(word).or_insert(0);
+        *counter += 1;
     }
     println!("{:?}", frequencey);
-    */
 }
