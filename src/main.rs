@@ -6,18 +6,18 @@ fn main() {
     let mut f = File::open("sample/hello.txt")
         .expect("fail to open file");
 
-    let mut buffer: Vec<u8> = Vec::new();//String::new();
+    let mut buffer: Vec<u8> = Vec::new();
 
     f.read_to_end(&mut buffer)
         .expect("fail to read");
 
     println!("{:?} is content", buffer);
 
-    let mut frequencey = HashMap::new();
+    let mut frequency = HashMap::new();
 
     for word in buffer {
-        let counter = frequencey.entry(word).or_insert(0);
+        let counter = frequency.entry(word).or_insert(0);
         *counter += 1;
     }
-    println!("{:?}", frequencey);
+    println!("{:?}", frequency);
 }
